@@ -6,3 +6,4 @@ phpmyadmin/
 typecho/
 video/
 database.php
+login/database.php
