@@ -1,0 +1,41 @@
+/*
+This is Xiyu's css.
+--2023-03-31
+*/
+
+
+
+
+/*字体大小统一标准*/
+body {
+    font-size: 100%;
+}
+
+/*各种链接颜色定义*/
+a:link {
+    color: #069acf;
+}
+a:visited {
+    color: #069acf;
+}
+a:focus {
+    color: purple;
+}
+a:hover{
+    color: rgb(35, 207, 35);
+}
+a:active{
+    color: rgb(35, 207, 35);
+}
+
+/*.page {
+    width: 960px;
+}
+
+main {
+    width: 62.5%;
+}
+
+.sidebar {
+    width: 31.25%;
+}*/
