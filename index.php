@@ -14,6 +14,12 @@ if (isset($_SESSION["user_id"])) {
     $user = $result->fetch_assoc();
 }
 
+    $group = "";
+    if(isset($user)){
+        $groupre = $user;
+        $groupre = array_flip($groupre);//反转
+        $group = array_search("usergroup",$groupre);
+    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -77,16 +83,23 @@ if (isset($_SESSION["user_id"])) {
     <!--页脚-->
     <footer role="contentinfo">
         <p><small>&copy; 2023 Xiyu</small></p>
-        <p><small>这里还缺了一些东西呃<br>
-            <ul>
-                <li>登录界面与主界面合并 <span style="font-size: 10px">改header</span></li>
-                <li>在xiyuchat跳转登录完成后回xiyuchat <span style="font-size: 10px">变量</span></li>
-                <li>留言 (等着吧不知道什么时候做) <span style="font-size: 10px">wxpusher</span></li>
-                <li>修改密码 (用户名/昵称更改直接微信/QQ叫我改数据库) <span style="font-size: 10px">update</span></li>
-                <li>一堆间距还没调 主要在导航栏部分</li>
-                <li>权限设定 <span style="font-size: 10px">writer和admin在hot部分的还有ban(2)在xiyuchat部分的</span><!--<br><span style="font-size: 10px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ban_all:禁止读,ban_w:禁止写</span>--></li>
-            </ul>
-        </small></p>
+        
+        <?php if ($group == "admin"): ?>
+            <p><small>这里还缺了一些东西呃<br>
+                <ul>
+                    <li>登录界面与主界面合并 <span style="font-size: 10px">改header</span></li>
+                    <li>在xiyuchat跳转登录完成后回xiyuchat <span style="font-size: 10px">变量</span></li>
+                    <li>留言 (等着吧不知道什么时候做) <span style="font-size: 10px">wxpusher</span></li>
+                    <li>修改密码 (用户名/昵称更改直接微信/QQ叫我改数据库) <span style="font-size: 10px">update</span></li>
+                    <li>一堆间距还没调 主要在导航栏部分</li>
+                    <li>权限设定 <span style="font-size: 10px">writer和admin在hot部分的还有ban(2)在xiyuchat部分的</span><!--<br><span style="font-size: 10px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ban_all:禁止读,ban_w:禁止写</span>--></li>
+                    <li>用隐含的 iframe 不刷新页面提交表单</li>
+                    <li>admin权限增加删除项</li>
+                    <li>长轮询要不xiyuchat没法复制总是刷新</li>
+                </ul>
+            </small></p>
+        <?php endif; ?>
+
     </footer>
 
 </div>

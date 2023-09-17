@@ -95,7 +95,6 @@ if (isset($_SESSION["user_id"])) {
         $groupre = array_flip($groupre);//反转
         $group = array_search("usergroup",$groupre);
     }
-
 ?>
 
         <!--消息发送-->
