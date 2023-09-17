@@ -1,15 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "zoutaoyu319";
-$dbname = "hot";
- 
-// 创建连接
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("连接失败: " . mysqli_connect_error());
-}
+$conn = require "database.php";
  
 $sql = "SELECT * FROM hot_msg";
 $result = mysqli_query($conn, $sql);
