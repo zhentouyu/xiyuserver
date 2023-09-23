@@ -1,11 +1,10 @@
 <?php
-echo "hahass\n";
+//echo "修改密码\n";
 
-$name = $_POST["name"] ?? '';
 $username = $_POST["username"] ?? '';
 $password = $_POST["password"] ?? '';
 $password_confirmation = $_POST["password_confirmation"] ?? '';
-echo $name,$username,$password;
+//echo $username,$password;
 if (empty($username)) {
     die("Username is required");
 }
@@ -19,22 +18,23 @@ if ($password_confirmation !== $password) {
     die("Password isn't match");
 }
 
-$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
+$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+echo "\nPassword ".$password_hash." Password\n";
 $link = require __DIR__ . "/database.php";
-echo "connect to database.php successfully";
-$sql = 'INSERT INTO `user` (`name`, `username`, `password`, `password_hash`) VALUES (\''.$name.'\', \''.$username.'\', \''.$password.'\', \''.$password_hash.'\')';
+$sql = 'UPDATE `user` SET `password`=\''.$password.'\', `password_hash`=\''.$password_hash.'\' WHERE username=\''.$username.'\'';
                   
 $res = mysqli_query($link, $sql);
 if ($res) {
-    header("Location: signup-success.php");
+    require "logout.php";
+    header("Location: modify-success.php");
     exit;
 } else {
     if ($link->errno === 1062) {
         die("username already taken");
     } else {
         die($link->error . " " . $link->errno);
-    }
+    }//不知道有什么用的代码(else部分)
 }
 
 ?>

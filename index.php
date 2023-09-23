@@ -1,42 +1,87 @@
 <?php
-
-session_start();
-
-if (isset($_SESSION["user_id"])) {
-    
-    $mysqli = require "./login/database.php";
-    
-    $sql = "SELECT * FROM user
-            WHERE id = {$_SESSION["user_id"]}";
-            
-    $result = $mysqli->query($sql);
-    
-    $user = $result->fetch_assoc();
-}
-
-    $group = "";
-    if(isset($user)){
-        $groupre = $user;
-        $groupre = array_flip($groupre);//反转
-        $group = array_search("usergroup",$groupre);
-    }
+#php头已经挪到/header.php里啦 还是只在这里做备份哦
+#session_start();
+#
+#if (isset($_SESSION["user_id"])) {
+#
+#    $mysqli = require "./login/database.php";
+#
+#    $sql = "SELECT * FROM user
+#            WHERE id = {$_SESSION["user_id"]}";
+#            
+#    $result = $mysqli->query($sql);
+#    
+#    $user = $result->fetch_assoc();
+#}
+#
+#    $group = "";
+#    if(isset($user)){
+#        $groupre = $user;
+#        $groupre = array_flip($groupre);//反转
+#        $group = array_search("usergroup",$groupre);
+#    }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
         <meta charset="utf-8" />
         <title>细鱼</title>
-        <link rel="stylesheet" href="css/style.css" media="all" />
-        <link rel="stylesheet" media="only screen and (max-width: 480px)" href="css/style-max480.css" />
+        <!--这里不要使用water.css 容易引发排版问题-->
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/dropdown.css" />
+        <!--<link rel="stylesheet" media="only screen and (max-width: 480px)" href="css/style-max480.css" />-->
         <!--[if lt IE 9]>
             <script src="js/html5shiv.js"></script>
         <![endif]-->
+        <!--<style>
+            /* 下拉按钮样式 */
+            .dropbtn {
+                background-color: white;
+                color: #069acf;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* 容器 <div> - 需要定位下拉内容 */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* 下拉内容 (默认隐藏) */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 180px;
+                box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2);
+            }
+
+            /* 下拉菜单的链接 */
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            /* 鼠标移上去后修改下拉菜单链接颜色 */
+            .dropdown-content a:hover {background-color: #f1f1f1}
+
+            /* 在鼠标移上去后显示下拉菜单 */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        </style>-->
 </head>
 
 <body>
 <!--整体页面-->
-<div class="container">
+<div class="container" style="padding-left: 20px">
 
+    <?php if(0==1): ?><!--旧的导航栏 现已用总体代替 仅在这里做备份-->
     <!--页眉-->
     <header role="banner">
         <nav>
@@ -45,14 +90,37 @@ if (isset($_SESSION["user_id"])) {
 		    <!--<li><a href="webwxgetmsgimg.gif">雨后</a></li>-->
             <a href="/">主页</a>
 		    <a href="/typecho">typecho</a>
-		    <a href="/login">登录/注册</a>
-            <a href="/hot">实时热点</a>
+		    <a href="/login/login.php">登录</a>
+            <a href="/login/signup.html">注册</a>
+            <a href="/login/index.php">个人中心</a>
+            <a href="/hot">实时热点</a></li>
+
             <?php if (isset($user)): ?>
-		    <a href="/xiyuchat">xiyuchat</a>
+                <a href="/xiyuchat">xiyuchat</a>
             <?php endif; ?>
+
+
+            <a href="update.html" target="_blank">更新日志</a>
+
+
+            <?php if ($group == "admin"): ?>
+                <div class="dropdown">
+                    <button class="dropbtn">管理</button>
+                    <div class="dropdown-content">
+                        <a href="user.php">用户管理（未完工）</a>
+                        <a href="/phpmyadmin">数据库</a>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+
             </ul>
+            
         </nav>
     </header>
+    <?php endif; ?><!--结束旧-->
+
+    <?php require "./header.php"; ?><!--新的导航栏-->
 
     <!--主体-->
     <main role="main">
@@ -70,6 +138,7 @@ if (isset($_SESSION["user_id"])) {
         答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank">https://zhentouyu.gitee.io</a>
             </center>
         </article>
+
     </main>
     
     <!--侧栏-->
@@ -90,7 +159,6 @@ if (isset($_SESSION["user_id"])) {
                     <li>登录界面与主界面合并 <span style="font-size: 10px">改header</span></li>
                     <li>在xiyuchat跳转登录完成后回xiyuchat <span style="font-size: 10px">变量</span></li>
                     <li>留言 (等着吧不知道什么时候做) <span style="font-size: 10px">wxpusher</span></li>
-                    <li>修改密码 (用户名/昵称更改直接微信/QQ叫我改数据库) <span style="font-size: 10px">update</span></li>
                     <li>一堆间距还没调 主要在导航栏部分</li>
                     <li>权限设定 <span style="font-size: 10px">writer和admin在hot部分的还有ban(2)在xiyuchat部分的</span><!--<br><span style="font-size: 10px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ban_all:禁止读,ban_w:禁止写</span>--></li>
                     <li>用隐含的 iframe 不刷新页面提交表单</li>
@@ -105,3 +173,4 @@ if (isset($_SESSION["user_id"])) {
 </div>
 </body>
 </html>                                    
+<!--home-->

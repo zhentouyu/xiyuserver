@@ -1,18 +1,3 @@
-<?php
-session_start();
-
-if (isset($_SESSION["user_id"])) {
-    
-    $mysqli = require "../login/database.php";
-    
-    $sql = "SELECT * FROM user
-            WHERE id = {$_SESSION["user_id"]}";
-            
-    $result = $mysqli->query($sql);
-    
-    $user = $result->fetch_assoc();
-}
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -68,34 +53,17 @@ if (isset($_SESSION["user_id"])) {
             }
         </script><!--onload-->
         <link rel="stylesheet" href="/css/water.css">
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/dropdown.css" />
     </head>
     <body onload="onload()">
-        <header role="banner">
-            <nav>
-                <ul>
-                <!--<li><a href="video.html" title="电影之类的">视频</a></li>-->
-                <!--<li><a href="webwxgetmsgimg.gif">雨后</a></li>-->
-                <a href="/">主页</a>
-                <a href="/typecho">typecho</a>
-                <a href="/login">登录/注册</a>
-                <a href="/xiyuchat">xiyuchat</a>
-                </ul>
-            </nav>
-        </header>
+        <?php require "../header.php"; ?>
 
 
         <div id="main"></div><!--消息显示区-->
 
 
-<?php
-    $group = "";
-    if(isset($user)){
-        $groupre = $user;
-        $groupre = array_flip($groupre);//反转
-        $group = array_search("usergroup",$groupre);
-    }
-?>
+
 
         <!--消息发送-->
         <?php if ($group == "admin"): ?>
@@ -120,3 +88,4 @@ if (isset($_SESSION["user_id"])) {
         <?php endif; ?>
     </body>
 </html>
+<!--hot-->

@@ -38,10 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <title>Login</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/water.css">
+    <link rel="stylesheet" href="/css/water.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/dropdown.css" />
 </head>
 <body>
-    
+<?php require "../header.php"; ?>
     <h1>Login</h1>
     
     <?php if ($is_invalid): ?>
