@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
     
     <form method="post">
-        <label for="username">username</label>
+        <label for="username">Username</label>
         <input type="text" name="username" id="username"
                value="<?= htmlspecialchars($_POST["username"] ?? "") ?>">
         

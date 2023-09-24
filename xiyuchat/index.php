@@ -1,3 +1,7 @@
+<?php
+require "../header.php";
+#需要放在顶上 下面的登录判定需要用到里面的$user变量
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,16 +56,32 @@
                 stset();
             }
         </script><!--onload-->
+        <script>
+            $(document).ready(function() {
+                $('#send').submit(function(event) {
+                    // 阻止表单默认提交行为
+                    event.preventDefault();
+                        // 通过AJAX提交表单数据
+                        $.ajax({
+                            type: 'POST',
+                            url: 'send.php',
+                            data: $('#send').serialize(),
+                            success: function(data) {
+                                showmsg();
+                            }
+                    });
+                });
+            });
+        </script>
         <link rel="stylesheet" href="/css/water.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/dropdown.css" />
     </head>
     <body onload="onload()">
-        <?php require "../header.php"; ?>
         <div id="main"></div><!--消息显示区-->
 
         <!--消息发送-->
-        <form name="send" method="post" action="send.php" onsubmit="stset()">
+        <form name="send" method="post" action="send.php" onsubmit="stset()" id="send">
             <input type="text" name="tmsg" id="tmsg" required placeholder="发送消息…">
             <button type="submit" id="sendbtn">发送</button>
             <input type="text" name="user" id="user" value="" style="display: none;">

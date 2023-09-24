@@ -130,14 +130,15 @@
                 <img src="logo.jpg" width="44" height="44" alt="" />
                 <br>
                 这里是细鱼的网页
-		<br>
-		你的IP <?php echo $_SERVER['REMOTE_ADDR']; ?>
-        <br>
-        答案集合:<a href="https://zhentouyu.pages.dev" target="_blank">https://zhentouyu.pages.dev</a>
-        <br>
-        答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank">https://zhentouyu.gitee.io</a>
+                <br>
+                你的IP <?php echo $_SERVER['REMOTE_ADDR']; ?>
+                <br>
+                答案集合:<a href="https://zhentouyu.pages.dev" target="_blank">https://zhentouyu.pages.dev</a>
+                <br>
+                答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank">https://zhentouyu.gitee.io</a>
             </center>
         </article>
+
 
     </main>
     
@@ -152,16 +153,14 @@
     <!--页脚-->
     <footer role="contentinfo">
         <p><small>&copy; 2023 Xiyu</small></p>
-        
+        <a href="/issue" target="_blank" title="在这里给细鱼留言~">留言</a>
+        <p><small>网页底层 <a href="https://github.com/zhentouyu/xiyuserver/" target="_blank">https://github.com/zhentouyu/xiyuserver/</a></small></p>
+
         <?php if ($group == "admin"): ?>
             <p><small>这里还缺了一些东西呃<br>
                 <ul>
-                    <li>登录界面与主界面合并 <span style="font-size: 10px">改header</span></li>
-                    <li>在xiyuchat跳转登录完成后回xiyuchat <span style="font-size: 10px">变量</span></li>
-                    <li>留言 (等着吧不知道什么时候做) <span style="font-size: 10px">wxpusher</span></li>
-                    <li>一堆间距还没调 主要在导航栏部分</li>
+                    <li>个人中心与主界面合并 <span style="font-size: 10px"></span></li>
                     <li>权限设定 <span style="font-size: 10px">writer和admin在hot部分的还有ban(2)在xiyuchat部分的</span><!--<br><span style="font-size: 10px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ban_all:禁止读,ban_w:禁止写</span>--></li>
-                    <li>用隐含的 iframe 不刷新页面提交表单</li>
                     <li>admin权限增加删除项</li>
                     <li>长轮询要不xiyuchat没法复制总是刷新</li>
                 </ul>
