@@ -163,6 +163,8 @@
                     <li>权限设定 <span style="font-size: 10px">writer和admin在hot部分的还有ban(2)在xiyuchat部分的</span><!--<br><span style="font-size: 10px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ban_all:禁止读,ban_w:禁止写</span>--></li>
                     <li>admin权限增加删除项</li>
                     <li>长轮询要不xiyuchat没法复制总是刷新</li>
+                    <li>hot部分的排版问题 改为更新主时间+每条更新副时间加for循环每一条加序号</li>
+                    <li>xiyuchat部分倒序+分页</li>
                 </ul>
             </small></p>
         <?php endif; ?>
