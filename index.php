@@ -159,12 +159,11 @@
         <?php if ($group == "admin"): ?>
             <p><small>这里还缺了一些东西呃<br>
                 <ul>
-                    <li>个人中心与主界面合并 <span style="font-size: 10px"></span></li>
                     <li>权限设定 <span style="font-size: 10px">writer和admin在hot部分的还有ban(2)在xiyuchat部分的</span><!--<br><span style="font-size: 10px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ban_all:禁止读,ban_w:禁止写</span>--></li>
-                    <li>admin权限增加删除项</li>
-                    <li>长轮询要不xiyuchat没法复制总是刷新</li>
                     <li>hot部分的排版问题 改为更新主时间+每条更新副时间加for循环每一条加序号</li>
-                    <li>xiyuchat部分倒序+分页</li>
+                    <li style="color:gray">admin权限增加删除项<span style="font-size: 10px">暂时不必要</span></li>
+                    <li style="color:gray">长轮询要不xiyuchat没法复制总是刷新<span style="font-size: 10px">实现难度有点大</span></li>
+                    <li style="color:gray">xiyuchat倒序+分页<span style="font-size: 10px">xiyuchat破碎程度大</span></li>
                 </ul>
             </small></p>
         <?php endif; ?>

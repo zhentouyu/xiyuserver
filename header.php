@@ -13,10 +13,16 @@ if (isset($_SESSION["user_id"])) {
     $user = $result->fetch_assoc();
 }
 $group = "";
+$username = "";
 if(isset($user)){
-    $groupre = $user;
-    $groupre = array_flip($groupre);//反转
-    $group = array_search("usergroup",$groupre);
+    $infore = $user;
+    foreach ($infore as $key => $value) {
+        if ($key == "username") {
+            $username = $value;
+        }elseif ($key == "usergroup") {
+            $group = $value;
+        }
+    }
 }
 
 
@@ -42,7 +48,7 @@ EOF;
 
 
 echo <<<EOF
-    <a href="update.html" target="_blank">更新日志</a>
+    <a href="/update.html" target="_blank">更新日志</a>
 EOF;
 
 
@@ -51,7 +57,7 @@ if ($group == "admin") {
         <div class="dropdown">
             <button class="dropbtn">管理</button>
             <div class="dropdown-content">
-                <a href="user.php">用户管理（未完工）</a>
+                <a href="/user.php">用户管理（未完工）</a>
                 <a href="/phpmyadmin">数据库</a>
             </div>
         </div>

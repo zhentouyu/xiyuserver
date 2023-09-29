@@ -9,8 +9,9 @@
     </head>
     <body>
         <?php require "../header.php"; ?>
-        <center>
-            <p>你还没有登录 <a href="/login/login.php">Log in</a> or <a href="/login/signup.html">sign up</a></p>
-        </center>
+            <p>你还没有登录/无xiyuchat访问权限<br><br><a href="/login/login.php">Log in</a> or <a href="/login/signup.html">sign up</a></p>
+            <?php
+            echo "username:".$username;
+            ?>
     </body>
 </html>
