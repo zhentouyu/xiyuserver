@@ -75,6 +75,7 @@
                 display: block;
             }
         </style>-->
+
 </head>
 
 <body>
@@ -130,9 +131,8 @@
                 <img src="logo.jpg" width="44" height="44" alt="" />
                 <br>
                 这里是细鱼的网页
-                <br>
-                你的IP <?php echo $_SERVER['REMOTE_ADDR']; ?>
-                <br>
+
+                <br><br>
                 答案集合:<a href="https://zhentouyu.pages.dev" target="_blank">https://zhentouyu.pages.dev</a>
                 <br>
                 答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank">https://zhentouyu.gitee.io</a>
@@ -155,8 +155,8 @@
         <p><small>&copy; 2023 Xiyu</small></p>
         <a href="/issue" target="_blank" title="在这里给细鱼留言~">留言</a>
         <p><small>网页底层 <a href="https://github.com/zhentouyu/xiyuserver/" target="_blank">https://github.com/zhentouyu/xiyuserver/</a></small></p>
-
-        <?php if ($group == "admin"): ?>
+        <div id="ipinfo"></div><!--你的ip-->
+        <?php if ($group == "admin"): //管理菜单 ?>
             <p><small>这里还缺了一些东西呃<br>
                 <ul>
                     <li>权限设定 <span style="font-size: 10px">writer和admin在hot部分的还有ban(2)在xiyuchat部分的</span><!--<br><span style="font-size: 10px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ban_all:禁止读,ban_w:禁止写</span>--></li>
@@ -171,6 +171,16 @@
     </footer>
 
 </div>
+<script>
+            var re = /:/;
+            reipv6 = re.test("<?php echo $_SERVER['REMOTE_ADDR']; ?>");
+            if (reipv6 == false) {
+                document.getElementById("ipinfo").innerHTML="<small>你的IP: <span style=\"color: gray\"><?php echo "<br>内网穿透：".$_SERVER['REMOTE_ADDR']; ?></span><?php echo "<br>实际ip："; require "ip.php"; ?></small>";
+            }
+            if (reipv6 == true) {
+                document.getElementById("ipinfo").innerHTML="<small>你的IP: <?php echo $_SERVER['REMOTE_ADDR']."(未经过内网穿透)"; ?></small>";
+            }
+        </script>
 </body>
 </html>                                    
 <!--home-->
