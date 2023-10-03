@@ -15,25 +15,7 @@ if ($xcallow == "2") {
         <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="/css/toastr.css" rel="stylesheet"/>
         <script src="/js/toastr.min.js"></script>
-        <script>
-            setInterval(showmsg, 1000);
 
-            function showmsg() {
-                $.ajax({
-                    method: 'GET',
-                    url: 'show.php',
-                    //timeout: 5000,
-                    success: function(data) {
-                        console.log(data)
-                        document.getElementById("main").innerHTML=data;
-                    },
-                    error: function(res) {
-                    }
-                });
-            }
-            showmsg();
-
-        </script><!--showmsg-->
         <script>
             function stset() {
                 $("#user").val("<?= htmlspecialchars($user["name"]) ?>");
@@ -44,9 +26,9 @@ if ($xcallow == "2") {
             function islogin() {
                 <?php
                 if (isset($user) and $xcallow == "1") {//已登录且有权限
-                    echo "iflogin = 1";
+                    echo "iflogin = 1;";
                 }else{//无权限/未登录
-                    echo "iflogin = 0";
+                    echo "iflogin = 0;";
                     header("Location: nologin-xiyuchat.php");
                 }
                 ?>
@@ -105,7 +87,12 @@ if ($xcallow == "2") {
             function successtoast() {
                 toastr.success(document.getElementById("tmsg").value, "发送成功");
             }
+            function aaa(){
+                toastr.success(document.getElementById("refrcheck").value, "发送成功");
+            }
+
         </script><!--toastr-->
+
         <link rel="stylesheet" href="/css/water.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/dropdown.css" />
@@ -123,6 +110,8 @@ if ($xcallow == "2") {
             <input type="text" name="user" id="user" value="" style="display: none;">
         </form>
         <br>
+        <input name="refrcheck" id="refrcheck" type="checkbox" checked><label for="refrcheck">启用刷新</label><br>
+        <small>如果需要选择的话要先把自动刷新关掉</small>
         <!--<button type="button" onclick="showmsg()">手动刷新</button>-->
 
         <?php if (isset($user)): ?>
@@ -131,6 +120,35 @@ if ($xcallow == "2") {
         <?php else: ?>
             <p><a href="/login/login.php">Log in</a> or <a href="/login/signup.html">sign up</a></p>
         <?php endif; ?>
+
+        <script>
+            $("#refrcheck").change(function(){
+                if (document.getElementById("refrcheck").checked == false) {
+                    toastr.info("已关闭自动刷新")
+                }
+                if (document.getElementById("refrcheck").checked == true) {
+                    toastr.info("已启用自动刷新")
+                }
+
+            });
+
+            setInterval(showmsg, 1000);
+            function showmsg() {
+                if (document.getElementById("refrcheck").checked == true){
+                $.ajax({
+                    method: 'GET',
+                    url: 'show.php',
+                    success: function(data) {
+                        //console.log(data)
+                        document.getElementById("main").innerHTML=data;
+                    },
+                    error: function(res) {
+                    }
+                });
+                }
+            }
+            showmsg();
+        </script><!--showmsg-->
     </body>
 </html>
 <!--xiyuchat-->
