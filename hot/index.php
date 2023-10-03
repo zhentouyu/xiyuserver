@@ -70,9 +70,9 @@ require "../header.php";
 
 
         <!--消息发送-->
-        <?php if ($group == "admin"): ?>
+        <?php if ($group == "admin" or $group = "writer"): ?>
         <form name="send" method="post" action="send.php" onsubmit="stset()">
-            <input type="text" name="tmsg" id="tmsg" required placeholder="发送消息…">
+            <input type="text" name="tmsg" id="tmsg" required placeholder="发送实时热点…">
             <button type="submit" id="sendbtn">发送</button>
             <input type="text" name="user" id="user" value="" style="display: none;">
         </form>
