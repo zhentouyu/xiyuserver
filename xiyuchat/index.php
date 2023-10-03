@@ -13,6 +13,8 @@ if ($username !== "ss") {
         <meta charset="utf8">
         <title>xiyuchat</title>
         <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <link href="/css/toastr.css" rel="stylesheet"/>
+        <script src="/js/toastr.min.js"></script>
         <script>
             setInterval(showmsg, 1000);
 
@@ -75,11 +77,35 @@ if ($username !== "ss") {
                             data: $('#send').serialize(),
                             success: function(data) {
                                 showmsg();
+                                successtoast();
+                                document.getElementById("tmsg").value="";
                             }
                     });
                 });
             });
-        </script>
+        </script><!--ajax提交表单-->
+        <script>
+            toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "0",
+            "hideDuration": "0",
+            "timeOut": "1000",
+            "extendedTimeOut": "0",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+            }
+            function successtoast() {
+                toastr.success(document.getElementById("tmsg").value, "发送成功");
+            }
+        </script><!--toastr-->
         <link rel="stylesheet" href="/css/water.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/dropdown.css" />
@@ -94,7 +120,6 @@ if ($username !== "ss") {
             <button type="submit" id="sendbtn">发送</button>
             <input type="text" name="user" id="user" value="" style="display: none;">
         </form>
-
         <br>
         <!--<button type="button" onclick="showmsg()">手动刷新</button>-->
 

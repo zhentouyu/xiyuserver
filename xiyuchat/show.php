@@ -2,7 +2,7 @@
 set_time_limit(0);
 $conn = require "../login/database.php";
 
-$sql = "SELECT * FROM msg";
+$sql = "SELECT * FROM xcmsg";
 $result = mysqli_query($conn, $sql);
 
 //

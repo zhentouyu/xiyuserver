@@ -45,17 +45,40 @@
                 });
             }
         </script>
+        <script>
+            $(document).ready(function() {
+                $('#send').submit(function(event) {
+                    // 阻止表单默认提交行为
+                    event.preventDefault();
+                        // 通过AJAX提交表单数据
+                        $.ajax({
+                            type: 'POST',
+                            url: 'send.php',
+                            data: $('#send').serialize(),
+                            success: function(data) {
+                                alert("留言写入数据库成功");
+                            }
+                    });
+                });
+            });
+        </script>
     </head>
     <body>
         <h1>留言</h1>
-        <form>
+
+
+        <form id="send">
             <label for="text">留言内容</label>
             <input type="text" id="text" name="text" required>
             <br>
             <label for="name">昵称(非必填)</label>
             <input type="text" id="name" name="name">
+            <br>
+            <button type="submit" id="sendbtn" onclick="postsend()">留言</button>
         </form>
-        <button id="submitbtn" onclick="postsend()">留言</button>
+
+
+
         <br>
         <small>在这里留言 细鱼就能看到啦 只有细鱼能看到 说什么都可以的</small>
         <br>

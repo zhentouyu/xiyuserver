@@ -10,7 +10,7 @@ echo $user," ",$msg;
 // 创建连接
 $conn = require "../login/database.php";
  
-$sql = "INSERT INTO msg (`user`,`msg`) VALUES ('".$user."','".$msg."')";
+$sql = "INSERT INTO xcmsg (`user`,`msg`) VALUES ('".$user."','".$msg."')";
 $result = mysqli_query($conn, $sql);
 
 

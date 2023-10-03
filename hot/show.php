@@ -1,7 +1,7 @@
 <?php
 $conn = require "database.php";
  
-$sql = "SELECT * FROM hot_msg";
+$sql = "SELECT * FROM hot";
 $result = mysqli_query($conn, $sql);
 
 //

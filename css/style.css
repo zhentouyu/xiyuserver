@@ -41,3 +41,8 @@ button {
 #headerul {
     padding-left: 0px;
 }
+*:not(pre) 
+{
+    -webkit-text-stroke: 0px !important;
+    text-stroke: 0px !important
+}

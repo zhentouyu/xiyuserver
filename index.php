@@ -131,13 +131,19 @@
                 <img src="logo.jpg" width="44" height="44" alt="" />
                 <br>
                 这里是细鱼的网页
-
-                <br><br>
-                答案集合:<a href="https://zhentouyu.pages.dev" target="_blank">https://zhentouyu.pages.dev</a>
-                <br>
-                答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank">https://zhentouyu.gitee.io</a>
             </center>
         </article>
+        <article>
+            <center>
+                <br><br>
+                答案集合:<a href="https://zhentouyu.pages.dev" target="_blank">https://zhentouyu.pages.dev</a>
+                <br><small>↑微信内已经封锁↑ 访问偏慢但整体资料较全</small>
+                <br>
+                答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank">https://zhentouyu.gitee.io</a>
+                <br><small>↑微信内可以打开↑ 访问快但部分资料缺失</small>
+            </center>
+        </article>
+
 
 
     </main>
@@ -154,8 +160,24 @@
     <footer role="contentinfo">
         <p><small>&copy; 2023 Xiyu</small></p>
         <a href="/issue" target="_blank" title="在这里给细鱼留言~">留言</a>
-        <p><small>网页底层 <a href="https://github.com/zhentouyu/xiyuserver/" target="_blank">https://github.com/zhentouyu/xiyuserver/</a></small></p>
+        <br><br>
         <div id="ipinfo"></div><!--你的ip-->
+
+        <div>
+            <article>
+                <small>
+                    <br>
+                    <a href="https://xiyu4.943689.xyz">纯ipv4访问</a>
+                    <br>
+                    <a href="https://ipv6.943689.xyz">纯ipv6访问</a>
+                    <br>
+                    <a href="https://xiyu.943689.xyz">双栈访问</a>
+                </small>
+            </article>
+        </div>
+
+        <p><small>网页底层 <a href="https://github.com/zhentouyu/xiyuserver/" target="_blank">https://github.com/zhentouyu/xiyuserver/</a></small></p>
+
         <?php if ($group == "admin"): //管理菜单 ?>
             <p><small>这里还缺了一些东西呃<br>
                 <ul>
@@ -175,10 +197,10 @@
             var re = /:/;
             reipv6 = re.test("<?php echo $_SERVER['REMOTE_ADDR']; ?>");
             if (reipv6 == false) {
-                document.getElementById("ipinfo").innerHTML="<small>你的IP: <span style=\"color: gray\"><?php echo "<br>内网穿透：".$_SERVER['REMOTE_ADDR']; ?></span><?php echo "<br>实际ip："; require "ip.php"; ?></small>";
+                document.getElementById("ipinfo").innerHTML="<div><article><small>你的IP: <span style=\"color: gray\"><?php echo "<br>内网穿透：".$_SERVER['REMOTE_ADDR']; ?></span><?php echo "<br>实际ip："; require "ip.php"; ?></small></article></div>";
             }
             if (reipv6 == true) {
-                document.getElementById("ipinfo").innerHTML="<small>你的IP: <?php echo $_SERVER['REMOTE_ADDR']."(未经过内网穿透)"; ?></small>";
+                document.getElementById("ipinfo").innerHTML="<div></article><small>你的IP: <?php echo $_SERVER['REMOTE_ADDR']."(未经过内网穿透)"; ?></small></article></div>";
             }
         </script>
 </body>

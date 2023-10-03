@@ -9,7 +9,7 @@ echo $user," ",$msg;
 // 创建连接
 $conn = require "database.php";
  
-$sql = "INSERT INTO hot_msg (`user`,`msg`) VALUES ('".$user."','".$msg."')";
+$sql = "INSERT INTO hot (`user`,`msg`) VALUES ('".$user."','".$msg."')";
 $result = mysqli_query($conn, $sql);
 
 
