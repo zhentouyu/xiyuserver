@@ -1,8 +1,9 @@
 <?php
+require "../header.php";
 
 $user = $_POST["user"];
 $msg = $_POST["tmsg"];
-if (empty($user)) {
+if (empty($user) or $xcallow == "2") {
     echo '<a href="/xiyuchat" style="color: green">回到xiyuchat</a><br>';
     die("无访问权限/未登录");
 }

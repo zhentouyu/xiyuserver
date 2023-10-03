@@ -2,10 +2,10 @@
 <?php
 require "../header.php";
 #需要放在顶上 下面的登录判定需要用到里面的$user变量
-//临时↓
-if ($username !== "ss") {
+
+if ($xcallow == "2") {
     header("Location: nologin-xiyuchat.php");
-}
+}//=="2"为无访问权限
 ?>
 
 <html>
@@ -43,9 +43,9 @@ if ($username !== "ss") {
             var iflogin = 0;
             function islogin() {
                 <?php
-                if (isset($user)) {
+                if (isset($user) and $xcallow == "1") {//已登录且有权限
                     echo "iflogin = 1";
-                }else{
+                }else{//无权限/未登录
                     echo "iflogin = 0";
                     header("Location: nologin-xiyuchat.php");
                 }

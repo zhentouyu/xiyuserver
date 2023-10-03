@@ -21,6 +21,8 @@ if(isset($user)){
             $username = $value;
         }elseif ($key == "usergroup") {
             $group = $value;
+        }elseif ($key == "xiyuchat") {
+            $xcallow = $value;
         }
     }
 }
