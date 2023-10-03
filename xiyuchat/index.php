@@ -112,7 +112,9 @@ if ($xcallow == "2") {
     </head>
     <body onload="onload()">
         <div><p><mark>这里还没有完工哦<br>能力实在有限<br>长轮询先算了<br>不好搞对接<br>会搞的跟我联系一下（</mark></p></div>
-        <div id="main"></div><!--消息显示区-->
+        <div id="main" style="max-height: 500px;overflow:auto;border:2px solid grey;border-radius:5px;"></div><!--消息显示区-->
+        
+        <hr>
 
         <!--消息发送-->
         <form name="send" method="post" action="send.php" onsubmit="stset()" id="send">
