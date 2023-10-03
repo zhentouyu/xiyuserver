@@ -1,3 +1,7 @@
+<?php
+require "../header.php";
+#这里和xc同理 需要放在顶上 下面的登录判定需要用到里面的$user变量
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,7 +33,7 @@
                 $("#user").val("<?= htmlspecialchars($user["name"]) ?>");
             }
         </script><!--用户名设定-->
-        <script>
+        <!--<script>
             var iflogin = 0;
             function islogin() {
                 <?php if (isset($user)): ?>
@@ -44,7 +48,7 @@
                     $("#tmsg").attr("placeholder","请先登录");
                 }
             }
-        </script><!--登录判定-->
+        </script>--><!--登录判定-->
         <script>
             function onload() {
                 showmsg();
@@ -57,7 +61,7 @@
         <link rel="stylesheet" href="/css/dropdown.css" />
     </head>
     <body onload="onload()">
-        <?php require "../header.php"; ?>
+
 
 
         <div id="main"></div><!--消息显示区-->
