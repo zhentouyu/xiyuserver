@@ -42,7 +42,7 @@ if ($xcallow == "2") {
         </script><!--登录判定-->
         <script>
             function onload() {
-                showmsg();
+                showmsgfirst();
                 islogin();
                 stset();
             }
@@ -87,11 +87,9 @@ if ($xcallow == "2") {
             function successtoast() {
                 toastr.success(document.getElementById("tmsg").value, "发送成功");
             }
-            function aaa(){
-                toastr.success(document.getElementById("refrcheck").value, "发送成功");
-            }
 
         </script><!--toastr-->
+
 
         <link rel="stylesheet" href="/css/water.css">
         <link rel="stylesheet" href="/css/style.css">
@@ -99,8 +97,8 @@ if ($xcallow == "2") {
     </head>
     <body onload="onload()">
         <div><p><mark>这里还没有完工哦<br>能力实在有限<br>长轮询先算了<br>不好搞对接<br>会搞的跟我联系一下（</mark></p></div>
-        <div id="main" style="max-height: 500px;overflow:auto;border:2px solid grey;border-radius:5px;"></div><!--消息显示区-->
-        
+        <div id="scrolldiv" style="max-height: 500px;overflow:auto;border:2px solid grey;border-radius:5px;"></div><!--消息显示区-->
+
         <hr>
 
         <!--消息发送-->
@@ -110,9 +108,12 @@ if ($xcallow == "2") {
             <input type="text" name="user" id="user" value="" style="display: none;">
         </form>
         <br>
-        <input name="refrcheck" id="refrcheck" type="checkbox" checked><label for="refrcheck">启用刷新</label><br>
+        <input name="refrcheck" id="refrcheck" type="checkbox" checked><label for="refrcheck">启用刷新</label>
+        <button id="fresh" type="button" onclick="showmsgfr()" style="height:30px;width:40px;padding:0px"><span style="text-align: center;font-size:10px;display:inline-block;">手动刷新</span></button>
+        <br>
         <small>如果需要选择的话要先把自动刷新关掉</small>
-        <!--<button type="button" onclick="showmsg()">手动刷新</button>-->
+        
+        <hr>
 
         <?php if (isset($user)): ?>
         <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
@@ -129,8 +130,21 @@ if ($xcallow == "2") {
                 if (document.getElementById("refrcheck").checked == true) {
                     toastr.info("已启用自动刷新")
                 }
-
             });
+
+            function showmsgfirst() {
+                $.ajax({
+                    method: 'GET',
+                    url: 'show.php',
+                    success: function(data) {
+                        //console.log(data)
+                        document.getElementById("scrolldiv").innerHTML=data;
+                        scroll();
+                    },
+                    error: function(res) {
+                    }
+                });
+            }//onload时的showmsg(scroll)
 
             setInterval(showmsg, 1000);
             function showmsg() {
@@ -140,15 +154,34 @@ if ($xcallow == "2") {
                     url: 'show.php',
                     success: function(data) {
                         //console.log(data)
-                        document.getElementById("main").innerHTML=data;
+                        document.getElementById("scrolldiv").innerHTML=data;
                     },
                     error: function(res) {
                     }
                 });
                 }
-            }
-            showmsg();
+            }//普通的showmsg
+
+            function showmsgfr() {
+                $.ajax({
+                    method: 'GET',
+                    url: 'show.php',
+                    success: function(data) {
+                        //console.log(data)
+                        document.getElementById("scrolldiv").innerHTML=data;
+                    },
+                    error: function(res) {
+                    }
+                });
+            }//手动showmsg
         </script><!--showmsg-->
+        <script>
+            function scroll() {
+                //let scrolldiv = document.getElementById('scrolldiv');
+                document.getElementById('scrolldiv').scrollTop = document.getElementById('scrolldiv').scrollHeight;
+                console.log("scroll success");
+            }
+        </script><!--scroll-->
     </body>
 </html>
 <!--xiyuchat-->
