@@ -12,20 +12,16 @@ require "../header.php";
             setInterval(showmsg, 60000);
 
             function showmsg() {
-            if (window.XMLHttpRequest) {
-                // code for IE7+, Firefox, Chrome, Opera, Safari
-                xmlhttp=new XMLHttpRequest();
-            } else { // code for IE6, IE5
-                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-            }
-            
-            xmlhttp.onreadystatechange=function() {
-                if (this.readyState==4 && this.status==200) {
-                document.getElementById("main").innerHTML=this.responseText;
-                }
-            }
-            xmlhttp.open("GET","show.php",true);
-            xmlhttp.send();
+            $.ajax({
+                    method: 'GET',
+                    url: 'show.php',
+                    success: function(data) {
+                        //console.log(data)
+                        document.getElementById("main").innerHTML=data;
+                    },
+                    error: function(res) {
+                    }
+                });
             }
         </script><!--showmsg-->
         <script>
@@ -59,14 +55,22 @@ require "../header.php";
         <link rel="stylesheet" href="/css/water.css">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/dropdown.css" />
+        <style>
+            table tr td {
+                padding:6px;
+            }
+            table tr:nth-of-type(3) td {
+                padding:0px;
+            }
+        </style>
     </head>
     <body onload="onload()">
 
 
 
         <div id="main"></div><!--消息显示区-->
-
-
+        
+        <hr>
 
 
         <!--消息发送-->
