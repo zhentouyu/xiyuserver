@@ -62,6 +62,9 @@ require "../header.php";
             table tr:nth-of-type(3) td {
                 padding:0px;
             }
+            /*.msgid {
+                width: 10px;
+            }*/
         </style>
     </head>
     <body onload="onload()">
@@ -76,7 +79,7 @@ require "../header.php";
         <!--消息发送-->
         <?php if ($group == "admin" or $group = "writer"): ?>
         <form name="send" method="post" action="send.php" onsubmit="stset()">
-            <input type="text" name="tmsg" id="tmsg" required placeholder="发送实时热点…">
+            <input type="text" name="tmsg" id="tmsg" required placeholder="发送实时热点…" style="width: 70%;">
             <button type="submit" id="sendbtn">发送</button>
             <input type="text" name="user" id="user" value="" style="display: none;">
         </form>
@@ -94,6 +97,10 @@ require "../header.php";
         <?php else: ?>
             <p><a href="/login/login.php">Log in</a> or <a href="/login/signup.html">sign up</a></p>
         <?php endif; ?>
+        <script>
+            var str = document.getElementById("demo").innerHTML; 
+            var txt = str.replace(/\r\n/i,"<br>");
+        </script>
     </body>
 </html>
 <!--hot-->

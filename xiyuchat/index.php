@@ -103,7 +103,7 @@ if ($xcallow == "2") {
 
         <!--消息发送-->
         <form name="send" method="post" action="send.php" onsubmit="stset()" id="send">
-            <input type="text" name="tmsg" id="tmsg" required placeholder="发送消息…">
+            <input type="text" name="tmsg" id="tmsg" required placeholder="发送消息…" style="width: 70%;">
             <button type="submit" id="sendbtn">发送</button>
             <input type="text" name="user" id="user" value="" style="display: none;">
         </form>

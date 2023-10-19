@@ -8,7 +8,7 @@ if (empty($user)) {
 echo $user," ",$msg;
 // 创建连接
 $conn = require "database.php";
- 
+$msg = preg_replace("/\/r\/n/","<br>",$msg);
 $sql = "INSERT INTO hot (`user`,`msg`) VALUES ('".$user."','".$msg."')";
 $result = mysqli_query($conn, $sql);
 
