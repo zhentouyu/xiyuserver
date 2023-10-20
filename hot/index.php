@@ -58,7 +58,7 @@ require "../header.php";
         <?php else: ?>
             <p><a href="/login/login.php">Log in</a> or <a href="/login/signup.html">sign up</a></p>
         <?php endif; ?>
-        <div id="hhh"></div>
+
 
         <script>
             $(document).ready(function() {
@@ -113,19 +113,6 @@ require "../header.php";
         </script>--><!--scroll(这里因为show.php里加了倒序所以可以不scroll了)-->
 
         <script>
-            function showmsgfirst() {
-                $.ajax({
-                    method: 'GET',
-                    url: 'show.php',
-                    success: function(data) {
-                        //console.log(data)
-                        document.getElementById("showarea").innerHTML=data;
-                        //scroll();//跟上面同理
-                    },
-                    error: function(res) {
-                    }
-                });
-                }
             setInterval(showmsg, 60000);
 
             function showmsg() {
