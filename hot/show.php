@@ -1,4 +1,5 @@
 <?php
+
 $conn = require "database.php";
  
 $sql = "SELECT * FROM hot";
@@ -34,23 +35,25 @@ $result = mysqli_query($conn, $sql);
 
 
 //
+echo "最近更新:" . $maintime;
+echo "<div id=\"main\" style=\"max-height: 500px;overflow:auto;border:2px solid grey;border-radius:5px;\">";
 echo "<table style=\"\">";
 
-echo "<tr><td>" . "最近更新:" . $maintime  ."</td></tr>";
-echo "<tr style=\"--background:transparent;\"><td style=\"padding:0px;\"></td></tr>";
-$sql = "SELECT * FROM hot";
+//echo "<tr><td style=\"display:none;\">" . "最近更新:" . $maintime  ."</td></tr>";
+//echo "<tr style=\"--background:transparent;\"><td style=\"padding:6px;\"></td></tr>";
+$sql = "SELECT * FROM hot ORDER BY `hot`.`id` DESC";
 $result = mysqli_query($conn, $sql);
 $count = 0;
 //print_r(mysqli_fetch_all($result));
 while($row = mysqli_fetch_array($result)) {
-    //echo "<tr><td>" . $row['user'] . " " . $row['time'] . "</td></tr>";
-    echo "<tr style=\"--background:transparent;\"><td class=\"msgid\" style=\"text-align: right;\"></td></tr>";
-    $msg = preg_replace("/\/r\/n/","<br>",$row['msg']);
-    echo "<tr style=\"--background:#efefef;\"><td>" . ++$count . "." . $msg . "</td>";
-    //echo "<td class=\"msgid\" style=\"text-align: right;width: 30%\">" . $row['id'] . "</td></tr>";
+    //echo "<tr><td>" . $row['user'] . " " . $row['time'] . "</td></tr>";//没用的临时代码
+    echo "<tr style=\"--background:transparent;\"><td></td></tr>";//抵消water.css的表格显示颜色差
+    $msg = preg_replace("/\r\n/","<br>",$row['msg']);//将数据库中的\r\n换行改为html的<br>
+    echo "<tr style=\"--background:#efefef;\"><td>" . ++$count . "." . $msg . "</td>";//主要部分显示
+    //echo "<td class=\"msgid\" style=\"text-align: right;width: 30%\">" . $row['id'] . "</td></tr>";//这里是原来的msgid显示 将来会改成删除的按钮
 }
 echo "</table>"; 
-
+echo "</div>";
 //
 mysqli_close($conn);
 
