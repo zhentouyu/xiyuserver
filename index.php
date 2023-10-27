@@ -138,11 +138,16 @@
                 <br><br>
                 <a href="/answer/" target="_blank">建议使用的新答案总集合</a>
                 <br>
-                答案集合:<a href="https://zhentouyu.pages.dev" target="_blank">https://zhentouyu.pages.dev</a>
-                <br><small>↑微信内已经封锁↑ 访问偏慢但整体资料较全</small>
-                <br>
-                答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank">https://zhentouyu.gitee.io</a>
-                <br><small>↑微信内可以打开↑ 访问快但部分资料缺失</small>
+                <div class="dropdown">
+                    <button class="dropbtn" style="font-size: 16px">旧的答案集合</button>
+                    <div class="dropdown-content" style="width:300px">
+                        答案集合:<a href="https://zhentouyu.pages.dev" target="_blank" style="background-color:#069acf">https://zhentouyu.pages.dev</a>
+                        <small>↑微信内已经封锁↑ 访问偏慢但整体资料较全</small>
+                        <br>
+                        答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank" style="background-color:#069acf">https://zhentouyu.gitee.io</a>
+                        <small>↑微信内可以打开↑ 访问快但部分资料缺失</small>
+                    </div>
+                </div>
             </center>
         </article>
 
