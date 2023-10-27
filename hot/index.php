@@ -5,7 +5,7 @@ require "../header.php";
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf8">
+        <meta charset="utf-8">
         <title>实时热点</title>
         <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="/css/toastr.css" rel="stylesheet"/>

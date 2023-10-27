@@ -10,7 +10,7 @@ if ($xcallow == "2") {
 
 <html>
     <head>
-        <meta charset="utf8">
+        <meta charset="utf-8">
         <title>xiyuchat</title>
         <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
         <link href="/css/toastr.css" rel="stylesheet"/>

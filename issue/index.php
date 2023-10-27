@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf8">
+        <meta charset="utf-8">
         <title>留言</title>
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/dropdown.css" />
