@@ -154,7 +154,7 @@ require "../header.php";
 
         <script>
             function onload() {
-                showmsgfirst();
+                showmsg();
                 islogin();
                 stset();
                 scroll();

@@ -136,6 +136,8 @@
         <article>
             <center>
                 <br><br>
+                <a href="/answer/" target="_blank">建议使用的新答案总集合</a>
+                <br>
                 答案集合:<a href="https://zhentouyu.pages.dev" target="_blank">https://zhentouyu.pages.dev</a>
                 <br><small>↑微信内已经封锁↑ 访问偏慢但整体资料较全</small>
                 <br>

@@ -44,7 +44,7 @@ EOF;
 
 if (isset($user)) {
     echo <<<EOF
-    <a href="/xiyuchat">xiyuchat</a>
+    <a href="/xiyuchat">xc</a>
 EOF;
 }
 

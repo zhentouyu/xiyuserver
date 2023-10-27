@@ -1,0 +1,19 @@
+body{
+    background-color: #eee;
+}
+.article-inner{
+    background: #fff;
+    -webkit-box-shadow: 1px 2px 3px #ddd;
+    box-shadow: 1px 2px 3px #ddd;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 60%;
+    margin: 50px auto;
+}
+.article-head {
+    padding: 20px 20px 0;
+}
+.article-main {
+    padding: 0 20px 20px;
+}
