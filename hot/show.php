@@ -10,6 +10,7 @@ $result = mysqli_query($conn, $sql);
 //print_r($result_all);
 //while ($row = mysqli_fetch_array($result)) {
     //$ro2 = $row;
+    $sumhot = 0;
     foreach (mysqli_fetch_all($result) as $key => $value) {
         $value2 = $value;
         /*print_r($value);
@@ -30,12 +31,13 @@ $result = mysqli_query($conn, $sql);
                 $hotmsgid = $value3;
             }//id
         }
+        $sumhot += 1;//计算总条数
     }
 //}
 
 
 //
-echo "最近更新:" . $maintime;
+echo "最近更新:" . $maintime . "&nbsp&nbsp&nbsp&nbsp&nbsp共" . $sumhot . "条";
 echo "<div id=\"main\" style=\"max-height: 500px;overflow:auto;border:2px solid grey;border-radius:5px;\">";
 echo "<table style=\"\">";
 

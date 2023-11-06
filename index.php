@@ -108,7 +108,7 @@
                 <div class="dropdown">
                     <button class="dropbtn">管理</button>
                     <div class="dropdown-content">
-                        <a href="user.php">用户管理（未完工）</a>
+                        <a href="user.php">用户管理（没用不做了）</a>
                         <a href="/phpmyadmin">数据库</a>
                     </div>
                 </div>
@@ -179,11 +179,15 @@
                     <a href="https://ipv6.943689.xyz">纯ipv6访问</a>
                     <br>
                     <a href="https://xiyu.943689.xyz">双栈访问</a>
+                    <br>
+                    <a href="https://file.943689.xyz">文件储存点</a>
                 </small>
             </article>
         </div>
 
         <p><small>网页底层 <a href="https://github.com/zhentouyu/xiyuserver/" target="_blank">https://github.com/zhentouyu/xiyuserver/</a></small></p>
+
+        <p><small>如果你是第一次来到这里可以<a href="https://xiyu.943689.xyz/typecho/index.php/11.html">看看这里</a></small></p>
 
         <?php if ($group == "admin"): //管理菜单 ?>
             <p><small>这里还缺了一些东西呃<br>

@@ -92,9 +92,9 @@
         <br>
         <small>在这里留言 细鱼就能看到啦 只有细鱼能看到 说什么都可以的</small>
         <br>
-        <small>有急事还是要及时联系细鱼哦<br>有添加什么功能想法之类的可以在这里说一说 如果你会代码的也可以来找我合作啦</small>
+        <small>有急事还是要及时微信联系细鱼哦</small>
         <br>
-        <small>有精力的可以去<a href="https://github.com/zhentouyu/xiyuserver/pulls" target="_blank" title="也许要梯子 国内访问过于不稳定">交个PR</a> 虽然我也看不明白那个怎么用 没人交过所以我也不会搞（</small>
+        <small>有精力的可以去<a href="https://github.com/zhentouyu/xiyuserver/pulls" target="_blank" title="也许要梯子 国内访问过于不稳定">交个PR</a> 我也看不明白那个怎么用</small>
         <br>
         <small>你的ip
         <?php

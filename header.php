@@ -58,8 +58,8 @@ if ($group == "admin") {
     echo <<< EOF
         <div class="dropdown">
             <button class="dropbtn" style="font-size: 16px">管理</button>
-            <div class="dropdown-content">
-                <a href="/user.php">用户管理（未完工）</a>
+            <div class="dropdown-content" style="min-width:80px">
+                
                 <a href="/phpmyadmin" target="_blank">数据库</a>
             </div>
         </div>
