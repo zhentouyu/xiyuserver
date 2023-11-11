@@ -75,7 +75,12 @@
                 display: block;
             }
         </style>-->
-
+        <style>
+            /*
+            * {
+                text-shadow: 0px 5px 10px #5dc93c;
+            }发疯再用*/
+        </style>
 </head>
 
 <body>
@@ -127,7 +132,7 @@
     <main role="main">
         <article>
             <center>
-                <h1>细~鱼~</h1>
+                <h1 style="/*text-shadow: 0px 5px 10px #245533;font-size:100px;text-align:center;margin:auto;发疯再用*/">细~鱼~</h1>
                 <img src="logo.jpg" width="44" height="44" alt="" />
                 <br>
                 这里是细鱼的网页
@@ -180,7 +185,6 @@
                     <br>
                     <a href="https://xiyu.943689.xyz">双栈访问</a>
                     <br>
-                    <a href="https://file.943689.xyz">文件储存点</a>
                 </small>
             </article>
         </div>
@@ -197,7 +201,10 @@
                 </ul>
             </small></p>
         <?php endif; ?>
-
+        
+        <?php
+            require "./notice/show.php";
+        ?>
     </footer>
 
 </div>

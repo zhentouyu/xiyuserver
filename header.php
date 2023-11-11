@@ -40,6 +40,7 @@ echo <<< EOF
         <a href="/login/signup.php">注册</a>
         <a href="/login/index.php">个人中心</a>
         <a href="/hot">实时热点</a></li>
+        <a href="https://file.943689.xyz">文件储存点</a>
 EOF;
 
 if (isset($user)) {
@@ -59,7 +60,7 @@ if ($group == "admin") {
         <div class="dropdown">
             <button class="dropbtn" style="font-size: 16px">管理</button>
             <div class="dropdown-content" style="min-width:80px">
-                
+                <!--<a href="/notice/frontsend.php" target="_blank">发公告</a>-->
                 <a href="/phpmyadmin" target="_blank">数据库</a>
             </div>
         </div>

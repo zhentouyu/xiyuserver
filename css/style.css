@@ -46,3 +46,6 @@ button {
     -webkit-text-stroke: 0px !important;
     text-stroke: 0px !important
 }
+small {
+    font-size: 13px;
+}
