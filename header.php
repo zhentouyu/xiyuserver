@@ -32,22 +32,24 @@ echo <<< EOF
 <header role="banner">
     <nav>
         <ul id="headerul">
-        <!--<li><a href="video.html" title="电影之类的">视频</a></li>-->
-        <!--<li><a href="webwxgetmsgimg.gif">雨后</a></li>-->
         <a href="/">主页</a>
+        <a href="/notice">公告</a>
         <a href="/typecho">typecho</a>
         <a href="/login/login.php">登录</a>
         <a href="/login/signup.php">注册</a>
         <a href="/login/index.php">个人中心</a>
-        <a href="/hot">实时热点</a></li>
+        <a href="/hot">实时热点</a>
         <a href="https://file.943689.xyz">文件储存点</a>
+        <a href="/xiyuchat">xc</a>
+        </li>
+        
 EOF;
 
-if (isset($user)) {
+/*if (isset($user)) {
     echo <<<EOF
     <a href="/xiyuchat">xc</a>
 EOF;
-}
+}*/
 
 
 echo <<<EOF

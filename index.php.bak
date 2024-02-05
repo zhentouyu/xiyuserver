@@ -135,7 +135,7 @@
                 <h1 style="/*text-shadow: 0px 5px 10px #245533;font-size:100px;text-align:center;margin:auto;发疯再用*/">细~鱼~</h1>
                 <img src="logo.jpg" width="44" height="44" alt="" />
                 <br>
-                这里是细鱼的网页<br>建议不要使用梯子访问这里 速度不如不挂梯子
+                这里是细鱼的网页
             </center>
         </article>
         <article>
@@ -143,27 +143,18 @@
                 <br><br>
                 <a href="/answer/" target="_blank">建议使用的新答案总集合</a>
                 <br>
-                <details>
-                    <summary>旧的答案集合</summary>
-
-                    <div style="width:320px;border:1px solid grey;border-radius:5px;">
-                        答案集合:<a href="https://zhentouyu.pages.dev" target="_blank">https://zhentouyu.pages.dev</a><br>
+                <div class="dropdown">
+                    <button class="dropbtn" style="font-size: 16px">旧的答案集合</button>
+                    <div class="dropdown-content" style="width:300px">
+                        答案集合:<a href="https://zhentouyu.pages.dev" target="_blank" style="background-color:#069acf">https://zhentouyu.pages.dev</a>
                         <small>↑微信内已经封锁↑ 访问偏慢但整体资料较全</small>
                         <br>
-                        答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank">https://zhentouyu.gitee.io</a><br>
+                        答案集合(备用):<a href="https://zhentouyu.gitee.io" target="_blank" style="background-color:#069acf">https://zhentouyu.gitee.io</a>
                         <small>↑微信内可以打开↑ 访问快但部分资料缺失</small>
                     </div>
-                </details>
+                </div>
             </center>
         </article>
-        <!--<article>
-        <center>
-        部分导航栏内容被隐藏 备案方便（<br>
-        <a href="/hot" target="_blank">实时热点</a>
-        和
-        <a href="/xiyuchat" target="_blank">不知道有什么用的发消息的地方</a>
-        </center>
-        </article>-->
 
 
 
@@ -180,7 +171,7 @@
     <!--页脚-->
     <footer role="contentinfo">
         <p><small>&copy; 2023 Xiyu</small></p>
-        在<a href="/issue" target="_blank" title="在这里给细鱼留言~">这里</a>给细鱼留言
+        <a href="/issue" target="_blank" title="在这里给细鱼留言~">留言</a>
         <br><br>
         <div id="ipinfo"></div><!--你的ip-->
 
@@ -198,7 +189,9 @@
             </article>
         </div>
 
-        <p><small>如果你是第一次来到这里可以<a href="https://xiyu.943689.xyz/typecho/index.php/11.html">看看这里</a>(深色模式访问小心瞎眼)</small></p>
+        <p><small>网页底层 <a href="https://github.com/zhentouyu/xiyuserver/" target="_blank">https://github.com/zhentouyu/xiyuserver/</a></small></p>
+
+        <p><small>如果你是第一次来到这里可以<a href="https://xiyu.943689.xyz/typecho/index.php/11.html">看看这里</a></small></p>
 
         <?php if ($group == "admin"): //管理菜单 ?>
             <p><small>这里还缺了一些东西呃<br>

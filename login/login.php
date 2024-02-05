@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>登录 | 细鱼</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/water.css">
         <link rel="stylesheet" href="/css/style.css">
@@ -44,18 +44,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 <?php require "../header.php"; ?>
-    <h1>Login</h1>
+    <h1>登录</h1>
     
     <?php if ($is_invalid): ?>
-        <em>Invalid login</em>
+        <em>登录失败，请重试</em>
     <?php endif; ?>
     
     <form method="post">
-        <label for="username">Username</label>
+        <label for="username">用户名</label>
         <input type="text" name="username" id="username"
                value="<?= htmlspecialchars($_POST["username"] ?? "") ?>">
         
-        <label for="password">Password</label>
+        <label for="password">密码</label>
         <input type="password" name="password" id="password">
         
         <button>Log in</button>

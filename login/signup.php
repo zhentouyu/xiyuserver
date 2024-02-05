@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Signup</title>
+    <title>注册 | 细鱼</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/water.css">
         <link rel="stylesheet" href="/css/style.css">
@@ -10,26 +10,26 @@
 </head>
 <body>
 <?php require "../header.php"; ?>
-    <h1>Signup</h1>
+    <h1>注册</h1>
     
     <form action="process-signup.php" method="post" id="signup" novalidate>
         <div>
-            <label for="name">Name</label>
+            <label for="name">昵称</label>
             <input type="text" id="name" name="name">
         </div>
         
         <div>
-            <label for="username">Username</label>
+            <label for="username">用户名（登录用）</label>
             <input type="text" id="username" name="username">
         </div>
         
         <div>
-            <label for="password">Password</label>
+            <label for="password">密码</label>
             <input type="password" id="password" name="password">
         </div>
         
         <div>
-            <label for="password_confirmation">Repeat password</label>
+            <label for="password_confirmation">重复密码</label>
             <input type="password" id="password_confirmation" name="password_confirmation">
         </div>
         

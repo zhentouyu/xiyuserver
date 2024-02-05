@@ -5,7 +5,7 @@ require "../header.php";
 
 if ($xcallow == "2") {
     header("Location: nologin-xiyuchat.php");
-}//=="2"为无访问权限
+}//=="2"为无访问权限 直接跳转（虽然现在不登录也能访问了所以不知道这个东西还有什么用
 ?>
 
 <html>
@@ -29,7 +29,7 @@ if ($xcallow == "2") {
                     echo "iflogin = 1;";
                 }else{//无权限/未登录
                     echo "iflogin = 0;";
-                    header("Location: nologin-xiyuchat.php");
+                    //header("Location: nologin-xiyuchat.php");//这里已经取消了不登录不能访问 目前只读不写
                 }
                 ?>
                 if (iflogin == 1) {

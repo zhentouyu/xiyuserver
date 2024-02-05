@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>个人中心 | 细鱼</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/water.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -15,13 +15,13 @@
         
         <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
         
-        <p><a href="logout.php">Log out</a></p>
+        <p><a href="logout.php">登出</a></p>
 
         <p><a href="modify.php">修改密码</a></p>
         
     <?php else: ?>
         
-        <p><a href="login.php">Log in</a> or <a href="signup.html">sign up</a></p>
+        <p><a href="login.php">登录</a> or <a href="signup.html">注册</a></p>
         
     <?php endif; ?>
     

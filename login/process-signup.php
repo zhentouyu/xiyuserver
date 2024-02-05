@@ -5,6 +5,7 @@ $name = $_POST["name"] ?? '';
 $username = $_POST["username"] ?? '';
 $password = $_POST["password"] ?? '';
 $password_confirmation = $_POST["password_confirmation"] ?? '';
+$time = time();
 echo $name,$username,$password;
 if (empty($username)) {
     die("Username is required");
@@ -23,7 +24,7 @@ $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 $link = require __DIR__ . "/database.php";
 echo "connect to database.php successfully";
-$sql = 'INSERT INTO `user` (`name`, `username`, `password`, `password_hash`) VALUES (\''.$name.'\', \''.$username.'\', \''.$password.'\', \''.$password_hash.'\')';
+$sql = 'INSERT INTO `user` (`name`, `username`, `password`, `password_hash`, `createtime`) VALUES (\''.$name.'\', \''.$username.'\', \''.$password.'\', \''.$password_hash.'\', \''.$time.'\')';
                   
 $res = mysqli_query($link, $sql);
 if ($res) {
