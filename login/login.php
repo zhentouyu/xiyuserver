@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <h1>登录</h1>
     
     <?php if ($is_invalid): ?>
-        <em>登录失败，请重试</em>
+        <em>登录失败，请重试 Invalid Login</em>
     <?php endif; ?>
     
     <form method="post">

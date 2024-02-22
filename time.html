@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间统计</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            transition: background-color 0.5s ease;
+            position: relative;
+        }
+        .progress-bar {
+            width: 200px;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            background-color: #4caf50;
+            transition: width 0.5s ease-in-out;
+            min-width: 3px;
+        }
+        .button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease; /* 添加按钮背景颜色过渡效果 */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加按钮阴影效果 */
+            position: absolute; /* 设置绝对定位 */
+            top: 0px; /* 距离顶部距离 */
+            right: 20px; /* 距离右侧距离 */
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .night-mode {
+            background-color: #333;
+            color: white;
+        }
+        .sun-icon {
+            display: none;
+        }
+        .moon-icon {
+            display: block;
+        }
+        .night-mode .sun-icon {
+            display: block;
+        }
+        .night-mode .moon-icon {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h1>时间统计</h1>
+<!--<button class="button" onclick="toggleNightMode()">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <g>
+            <g>
+                <path d="m256,432.3c-11.3,0-20.4,9.1-20.4,20.4v27.9c0,11.3 9.1,20.4 20.4,20.4s20.4-9.1 20.4-20.4v-27.9c0-11.3-9.1-20.4-20.4-20.4z" transform="scale(0.05, 0.05)"/>
+                <path d="m256,102.5c-84.6,0-153.5,68.8-153.5,153.5 0,84.6 68.8,153.5 153.5,153.5 84.6,0 153.5-68.8 153.5-153.5 0-84.6-68.9-153.5-153.5-153.5zm0,266.1c-62.1,0-112.6-50.5-112.6-112.6 0-62.1 50.5-112.6 112.6-112.6s112.6,50.5 112.6,112.6c0,62.1-50.5,112.6-112.6,112.6z" transform="scale(0.05, 0.05)"/>
+                <path d="M256,79.7c11.3,0,20.4-9.1,20.4-20.4V31.4c0-11.3-9.1-20.4-20.4-20.4s-20.4,9.1-20.4,20.4v27.9    C235.6,70.6,244.7,79.7,256,79.7z" transform="scale(0.05, 0.05)"/>
+                <path d="m480.6,235.6h-27.9c-11.3,0-20.4,9.1-20.4,20.4 0,11.3 9.1,20.4 20.4,20.4h27.9c11.3,0 20.4-9.1 20.4-20.4 0-11.3-9.1-20.4-20.4-20.4z" transform="scale(0.05, 0.05)"/>
+                <path d="m59.3,235.6h-27.9c-11.3,0-20.4,9.1-20.4,20.4 0,11.3 9.1,20.4 20.4,20.4h27.9c11.3,0 20.4-9.1 20.4-20.4 1.42109e-14-11.3-9.1-20.4-20.4-20.4z" transform="scale(0.05, 0.05)"/>
+                <path d="m409.5,131.4l19.7-19.7c8-8 8-20.9 0-28.9-8-8-20.9-8-28.9,0l-19.7,19.7c-8,8-8,20.9 0,28.9s20.9,7.9 28.9,0z" transform="scale(0.05, 0.05)"/>
+                <path d="m102.5,380.6l-19.7,19.7c-8,8-8,20.9 0,28.9 8,8 20.9,8 28.9,0l19.7-19.7c8-8 8-20.9 0-28.9s-20.9-7.9-28.9,0z" transform="scale(0.05, 0.05)"/>
+                <path d="m409.5,380.6c-8-8-20.9-8-28.9,0-8,8-8,20.9 0,28.9l19.7,19.7c8,8 20.9,8 28.9,0 8-8 8-20.9 0-28.9l-19.7-19.7z" transform="scale(0.05, 0.05)"/>
+                <path d="m102.5,131.4c8,8 20.9,8 28.9,0 8-8 8-20.9 0-28.9l-19.7-19.7c-8-8-20.9-8-28.9,0-8,8-8,20.9 0,28.9l19.7,19.7z" transform="scale(0.05, 0.05)"/>
+            </g>
+        </g>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <g>
+            <g>
+                <path style="fill:#010002;stroke:#010002;stroke-width:1.5;" d="M24.997,47.511C11.214,47.511,0,36.298,0,22.515C0,12.969,5.314,4.392,13.869,0.132
+                    c0.385-0.191,0.848-0.117,1.151,0.186s0.381,0.766,0.192,1.15C13.651,4.64,12.86,8.05,12.86,11.601
+                    c0,12.681,10.316,22.997,22.997,22.997c3.59,0,7.033-0.809,10.236-2.403c0.386-0.191,0.848-0.117,1.151,0.186
+                    c0.304,0.303,0.381,0.766,0.192,1.15C43.196,42.153,34.597,47.511,24.997,47.511z M12.248,3.372C5.862,7.608,2,14.709,2,22.515
+                    c0,12.68,10.316,22.996,22.997,22.996c7.854,0,14.981-3.898,19.207-10.343c-2.668,0.95-5.464,1.43-8.346,1.43
+                    c-13.783,0-24.997-11.214-24.997-24.997C10.861,8.761,11.327,6.005,12.248,3.372z" transform="scale(0.5, 0.5)"/>
+            </g>
+        </g>
+    </svg>
+</button>--><!--放弃的暗色模式切换 尽管它有作用-->
+
+<p id="current-time"></p>
+
+<p id="year-progress"></p>
+<div class="progress-bar">
+    <div id="year-progress-bar" class="progress-bar-fill"></div>
+</div>
+
+<p id="month-progress"></p>
+<div class="progress-bar">
+    <div id="month-progress-bar" class="progress-bar-fill"></div>
+</div>
+
+<p id="week-progress"></p>
+<div class="progress-bar">
+    <div id="week-progress-bar" class="progress-bar-fill"></div>
+</div>
+
+<p id="today-progress"></p>
+<div class="progress-bar">
+    <div id="today-progress-bar" class="progress-bar-fill"></div>
+</div>
+
+<p id="year-days"></p>
+<p id="month-days"></p>
+<p id="week-days"></p>
+<p id="today-days"></p>
+
+<script>
+    // 获取页面元素
+    var currentTimeElement = document.getElementById('current-time');
+    var bodyElement = document.body;
+    var yearProgressElement = document.getElementById('year-progress');
+    var monthProgressElement = document.getElementById('month-progress');
+    var weekProgressElement = document.getElementById('week-progress');
+    var todayProgressElement = document.getElementById('today-progress');
+    var yearDaysElement = document.getElementById('year-days');
+    var monthDaysElement = document.getElementById('month-days');
+    var weekDaysElement = document.getElementById('week-days');
+    var todayDaysElement = document.getElementById('today-days');
+
+    // 获取当前时间
+    function getCurrentTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = String(now.getMonth() + 1).padStart(2, '0');
+        var day = String(now.getDate()).padStart(2, '0');
+        var hours = String(now.getHours()).padStart(2, '0');
+        var minutes = String(now.getMinutes()).padStart(2, '0');
+        var seconds = String(now.getSeconds()).padStart(2, '0');
+        return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+    }
+
+    // 显示当前时间
+    function displayCurrentTime() {
+        currentTimeElement.textContent = '当前时间: ' + getCurrentTime();
+    }
+
+    function toggleNightMode() {
+        bodyElement.classList.toggle('night-mode'); // 切换夜间模式类
+    }
+
+    // 计算时间进度
+    function updateProgress() {
+        var now = new Date();
+        var yearStart = new Date(now.getFullYear(), 0, 0);
+        var yearEnd = new Date(now.getFullYear() + 1, 0, 0);
+        var yearProgress = ((now - yearStart) / (yearEnd - yearStart)) * 100;
+
+        var monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+        var monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+        var monthProgress = ((now - monthStart) / (monthEnd - monthStart)) * 100;
+
+        var weekStart = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
+        var weekEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay() + 6);
+        var weekProgress = ((now - weekStart) / (weekEnd - weekStart)) * 100;
+
+
+        var dayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var dayEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        var daySecondsPassed = (now - dayStart) / 1000; // Convert milliseconds to seconds
+        var dayTotalSeconds = (dayEnd - dayStart) / 1000;
+        var dayProgress = (daySecondsPassed / dayTotalSeconds) * 100;
+
+        updateProgressBar(yearProgress, 'year-progress-bar');
+        updateProgressBar(monthProgress, 'month-progress-bar');
+        updateProgressBar(weekProgress, 'week-progress-bar');
+        updateProgressBar(dayProgress, 'today-progress-bar');
+
+        yearProgressElement.textContent = '今年已过: ' + yearProgress.toFixed(4) + '%';
+        monthProgressElement.textContent = '本月已过: ' + monthProgress.toFixed(4) + '%';
+        weekProgressElement.textContent = '本周已过: ' + weekProgress.toFixed(4) + '%';
+        todayProgressElement.textContent = '今天已过: ' + dayProgress.toFixed(4) + '%';
+
+        var yearDaysPassed = Math.floor((now - yearStart) / (1000 * 60 * 60 * 24));
+        var yearDaysTotal = Math.floor((yearEnd - yearStart) / (1000 * 60 * 60 * 24));
+        var yearDaysRemaining = yearDaysTotal - yearDaysPassed;
+
+        var monthDaysPassed = now.getDate() - 1;
+        var monthDaysTotal = monthEnd.getDate();
+        var monthDaysRemaining = monthDaysTotal - monthDaysPassed;
+
+        var weekDaysPassed = now.getDay();
+        var weekDaysTotal = 7;
+        var weekDaysRemaining = weekDaysTotal - weekDaysPassed;
+
+        var todayDaysPassed = 1;
+        var todayDaysTotal = 1;
+        var todayDaysRemaining = 0;
+
+        yearDaysElement.textContent = '今年已过天数: ' + yearDaysPassed + ', 剩余天数: ' + yearDaysRemaining;
+        monthDaysElement.textContent = '本月已过天数: ' + monthDaysPassed + ', 剩余天数: ' + monthDaysRemaining;
+        weekDaysElement.textContent = '本周已过天数: ' + weekDaysPassed + ', 剩余天数: ' + weekDaysRemaining;
+    }
+
+    // 更新进度条
+    function updateProgressBar(progress, progressBarId) {
+        var progressBar = document.getElementById(progressBarId); // 获取进度条元素
+        var currentWidth = parseFloat(progressBar.style.width || 0); // 获取当前进度条的宽度（如果未设置，则默认为0），并转换为浮点数
+        var targetWidth = Math.min(progress, 100); // 确保进度不超过100%
+        var step = (targetWidth - currentWidth) / 10; // 根据当前宽度与目标宽度的差值，计算步长
+
+        function animate() {
+            if (currentWidth < targetWidth) { // 如果当前宽度小于目标宽度
+                currentWidth += step; // 增加当前宽度
+                progressBar.style.width = currentWidth + '%'; // 设置进度条的宽度
+                requestAnimationFrame(animate); // 递归调用，实现动画效果
+                console.log("animate");
+            }
+        }
+
+        if (currentWidth === 0) { // 如果当前宽度为0，即页面加载时
+            animate(); // 启动动画
+        } else {
+            progressBar.style.width = progress + '%';
+        }
+    }
+
+    // 更新时间信息
+    function updateInfo() {
+        displayCurrentTime();
+        updateProgress();
+    }
+
+    // 每秒更新一次时间信息
+    setInterval(updateInfo, 1000);
+
+    // 页面加载时首次更新时间信息
+    updateInfo();
+</script>
+</body>
+</html>

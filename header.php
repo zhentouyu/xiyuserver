@@ -35,8 +35,6 @@ echo <<< EOF
         <a href="/">主页</a>
         <a href="/notice">公告</a>
         <a href="/typecho">typecho</a>
-        <a href="/login/login.php">登录</a>
-        <a href="/login/signup.php">注册</a>
         <a href="/login/index.php">个人中心</a>
         <a href="/hot">实时热点</a>
         <a href="https://file.943689.xyz">文件储存点</a>

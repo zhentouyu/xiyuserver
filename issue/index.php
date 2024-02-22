@@ -32,8 +32,8 @@
                     "content":text+"\n"+name+"\n"+ip,
                     "summary":"新的留言",
                     "contentType":1,
-                    "uids":[
-                        "UID_mZypACjhTA8s1kXIpEKxzZ24Au3Z"
+                    "topicIds":[
+                        11512
                     ],
                     "url":"https://xiyu.943689.xyz"
                 }

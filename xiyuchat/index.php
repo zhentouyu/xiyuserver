@@ -19,6 +19,7 @@ if ($xcallow == "2") {
         <script>
             function stset() {
                 $("#user").val("<?= htmlspecialchars($user["name"]) ?>");
+                $("#userid").val("<?= htmlspecialchars($_SESSION["user_id"]) ?>");
             }
         </script><!--用户名设定-->
         <script>
@@ -105,6 +106,7 @@ if ($xcallow == "2") {
             <input type="text" name="tmsg" id="tmsg" required placeholder="发送消息…" style="width: 70%;">
             <button type="submit" id="sendbtn">发送</button>
             <input type="text" name="user" id="user" value="" style="display: none;">
+            <input type="text" name="userid" id="userid" value="" style="display: none;">
         </form>
         <br>
         <input name="refrcheck" id="refrcheck" type="checkbox" checked><label for="refrcheck">启用刷新</label>
